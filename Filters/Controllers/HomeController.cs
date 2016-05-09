@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Filters.Infrastructure;
+using System.Diagnostics;
 
 namespace Filters.Controllers
 {
     public class HomeController : Controller
     {
+        private Stopwatch timer;
         // GET: Home
            [CustomAuth(true)]
         public string Index()
@@ -32,12 +34,19 @@ namespace Filters.Controllers
         {
             return "This is the FilterTest action";
         }*/
-        [ProfileAction]
-        [ProfileResult]
-        [ProfileAll]
+        
         public string FilterTest()
         {
             return "This is the FilterTest action";
+        }
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            timer = Stopwatch.StartNew();
+        }
+        protected override void OnResultExecuted(ResultExecutedContext filterContext)
+        {
+            timer.Stop();
+            filterContext.HttpContext.Response.Write(string.Format("<div>Total elapsed time:{0}</div>", timer.Elapsed.TotalSeconds));
         }
     }
 }

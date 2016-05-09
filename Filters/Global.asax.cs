@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Filters.App_Start;
+using Filters.Infrastructure;
 
 namespace Filters
 {
@@ -13,6 +15,7 @@ namespace Filters
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //FilterConfig.RegisterGlobalFilters();
         }
     }
 }

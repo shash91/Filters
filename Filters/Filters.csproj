@@ -134,7 +134,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -145,6 +147,7 @@
     <Compile Include="Infrastructure\ProfileAllAttribute.cs" />
     <Compile Include="Infrastructure\ProfileResultAttribute.cs" />
     <Compile Include="Infrastructure\RangeExceptionAttribute.cs" />
+    <Compile Include="Infrastructure\SimpleMessageAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +173,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
